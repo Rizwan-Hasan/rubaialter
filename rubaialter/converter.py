@@ -48,11 +48,11 @@ def toTSV(inputFilePath: str) -> typing.NoReturn:
     elif file_extension == ".csv":
         csv_to_tsv(inputFilePath)
     elif file_extension == ".sqlite3":
-        sqlite_to_csv(inputFilePath)
+        sqlite_to_tsv(inputFilePath)
     elif file_extension == ".xls":
-        xls_to_csv(inputFilePath)
+        xls_to_tsv(inputFilePath)
     elif file_extension == ".xlsx":
-        xlsx_to_csv(inputFilePath)
+        xlsx_to_tsv(inputFilePath)
 
 
 def toSQLite(inputFilePath: str) -> typing.NoReturn:

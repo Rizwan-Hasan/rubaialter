@@ -66,6 +66,10 @@ def xls_to_csv(inputFilePath: str) -> typing.NoReturn:
     xlsx_to_csv(inputFilePath)
 
 
+def xls_to_tsv(inputFilePath: str) -> typing.NoReturn:
+    xlsx_to_tsv(inputFilePath)
+
+
 def xls_to_sqlite(inputFilePath: str) -> typing.NoReturn:
     xlsx_to_sqlite(inputFilePath)
 

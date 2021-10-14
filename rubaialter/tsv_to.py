@@ -36,7 +36,7 @@ def tsv_to_sqlite(inputFilePath: str) -> typing.NoReturn:
     conn.close()
 
 
-def tsv_to_tsv(inputFilePath: str, extension="tsv") -> typing.NoReturn:
+def tsv_to_csv(inputFilePath: str, extension="tsv") -> typing.NoReturn:
     print(f"Processing is in progress ...")
     df = pd.read_csv(inputFilePath, sep="\t")  # Read TSV
     filename, file_extension = os.path.splitext(
