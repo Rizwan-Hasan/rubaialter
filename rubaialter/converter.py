@@ -1,17 +1,19 @@
 import os
+import typing
+
 from rubaialter.csv_to import csv_to_sqlite, csv_to_xls, csv_to_xlsx
 from rubaialter.sqlite_to import sqlite_to_csv, sqlite_to_xls, sqlite_to_xlsx
 from rubaialter.xls_xlsx_to import (
     xls_to_csv,
     xls_to_sqlite,
+    xls_to_xlsx,
     xlsx_to_csv,
     xlsx_to_sqlite,
     xlsx_to_xls,
-    xls_to_xlsx,
 )
 
 
-def toCSV(inputFilePath: str):
+def toCSV(inputFilePath: str) -> typing.NoReturn:
     filename, file_extension = os.path.splitext(
         os.path.basename(inputFilePath)
     )  # Get File Name & Extension
@@ -26,7 +28,7 @@ def toCSV(inputFilePath: str):
         xlsx_to_csv(inputFilePath)
 
 
-def toSQLite(inputFilePath: str):
+def toSQLite(inputFilePath: str) -> typing.NoReturn:
     filename, file_extension = os.path.splitext(
         os.path.basename(inputFilePath)
     )  # Get File Name & Extension
@@ -41,7 +43,7 @@ def toSQLite(inputFilePath: str):
         xlsx_to_sqlite(inputFilePath)
 
 
-def toXLSX(inputFilePath: str):
+def toXLSX(inputFilePath: str) -> typing.NoReturn:
     filename, file_extension = os.path.splitext(
         os.path.basename(inputFilePath)
     )  # Get File Name & Extension
@@ -56,7 +58,7 @@ def toXLSX(inputFilePath: str):
         csv_to_xlsx(inputFilePath)
 
 
-def toXLS(inputFilePath: str):
+def toXLS(inputFilePath: str) -> typing.NoReturn:
     filename, file_extension = os.path.splitext(
         os.path.basename(inputFilePath)
     )  # Get File Name & Extension
