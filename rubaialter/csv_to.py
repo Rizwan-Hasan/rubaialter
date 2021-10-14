@@ -1,9 +1,11 @@
 import os
 import sqlite3
+import typing
+
 import pandas as pd
 
 
-def csv_to_xlsx(inputFilePath: str, extension="xlsx"):
+def csv_to_xlsx(inputFilePath: str, extension="xlsx") -> typing.NoReturn:
     print(f"Processing is in progress ...")
     df = pd.read_csv(inputFilePath)  # Read CSV
     filename, file_extension = os.path.splitext(
@@ -16,11 +18,11 @@ def csv_to_xlsx(inputFilePath: str, extension="xlsx"):
     print(f"All process done. {newFileName} is ready!")
 
 
-def csv_to_xls(inputFilePath: str):
+def csv_to_xls(inputFilePath: str) -> typing.NoReturn:
     csv_to_xlsx(inputFilePath, extension="xls")
 
 
-def csv_to_sqlite(inputFilePath: str):
+def csv_to_sqlite(inputFilePath: str) -> typing.NoReturn:
     print(f"Processing is in progress ...")
     df = pd.read_csv(inputFilePath)  # Read CSV
     filename, file_extension = os.path.splitext(
