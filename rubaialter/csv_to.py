@@ -37,5 +37,4 @@ def csv_to_sqlite(inputFilePath: str) -> typing.NoReturn:
 
 
 if __name__ == "__main__":
-    os.system("clear")
-    pass
+    print("Hello World")

@@ -44,4 +44,4 @@ def sqlite_to_xls(inputFilePath: str) -> typing.NoReturn:
 
 
 if __name__ == "__main__":
-    pass
+    print("Hello World")

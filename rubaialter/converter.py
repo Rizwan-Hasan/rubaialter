@@ -71,3 +71,7 @@ def toXLS(inputFilePath: str) -> typing.NoReturn:
         csv_to_xls(inputFilePath)
     elif file_extension == ".xlsx":
         xlsx_to_xls(inputFilePath)
+
+
+if __name__ == "__main__":
+    print("Hello World")
