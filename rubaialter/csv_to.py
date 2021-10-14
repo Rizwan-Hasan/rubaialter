@@ -36,5 +36,16 @@ def csv_to_sqlite(inputFilePath: str) -> typing.NoReturn:
     conn.close()
 
 
+def csv_to_tsv(inputFilePath: str, extension="tsv") -> typing.NoReturn:
+    print(f"Processing is in progress ...")
+    df = pd.read_csv(inputFilePath)  # Read CSV
+    filename, file_extension = os.path.splitext(
+        os.path.basename(inputFilePath)
+    )  # Get File Name & Extension
+    newFileName = filename + f".{extension}"
+    df.to_csv(newFileName, encoding="utf-8", index=False, sep="\t")
+    print(f"All process done. {newFileName} is ready!")
+
+
 if __name__ == "__main__":
     print("Hello World")

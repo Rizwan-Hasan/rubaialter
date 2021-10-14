@@ -20,6 +20,21 @@ def sqlite_to_csv(inputFilePath: str) -> typing.NoReturn:
     print("All processes are done!")
 
 
+def sqlite_to_tsv(inputFilePath: str) -> typing.NoReturn:
+    conn = sqlite3.connect(inputFilePath)
+    cursor = conn.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    table_names = cursor.fetchall()
+
+    for table in table_names:
+        print(f"Processing {table[0]} ...")
+        df = pd.read_sql(sql=f"SELECT * FROM {table[0]}", con=conn)
+        df.to_csv(f"{table[0]}.tsv", encoding="utf-8", index=False, sep="\t")
+        print(f"Processing {table[0]} is done. {table[0]}.tsv is ready!")
+    conn.close()
+    print("All processes are done!")
+
+
 def sqlite_to_xlsx(inputFilePath: str, extension="xlsx") -> typing.NoReturn:
     conn = sqlite3.connect(inputFilePath)
     cursor = conn.cursor()

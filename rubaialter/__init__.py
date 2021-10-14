@@ -27,7 +27,7 @@ class rubaialter:
             "filenames",
             type=pathlib.Path,
             nargs="+",
-            help=".csv, .xls, .xlsx, .sqlite3",
+            help=".csv, .xls, .xlsx, .sqlite3, .tsv",
         )
 
         # To CSV ↓
@@ -36,6 +36,14 @@ class rubaialter:
             default=False,
             action="store_true",
             help="Convert to csv",
+        )
+
+        # To TSV ↓
+        parser.add_argument(
+            "--tsv",
+            default=False,
+            action="store_true",
+            help="Convert to tsv",
         )
 
         # To XLS ↓
@@ -75,7 +83,7 @@ class rubaialter:
     # Received File Checking ↓
     def __Checking(self) -> typing.NoReturn:
         valid: bool = True
-        extensions: tuple = (".csv", ".xls", ".xlsx", ".sqlite3")
+        extensions: tuple = (".csv", ".xls", ".xlsx", ".sqlite3", ".tsv")
 
         for file in self.__args.get("filenames"):
             if not os.path.exists(file):
@@ -96,6 +104,8 @@ class rubaialter:
         for file in self.__args.get("filenames"):
             if self.__args.get("csv"):
                 converter.toCSV(inputFilePath=file)
+            if self.__args.get("tsv"):
+                converter.toTSV(inputFilePath=file)
             if self.__args.get("xls"):
                 converter.toXLS(inputFilePath=file)
             if self.__args.get("xlsx"):

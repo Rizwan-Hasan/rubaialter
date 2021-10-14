@@ -17,6 +17,17 @@ def xlsx_to_csv(inputFilePath: str) -> typing.NoReturn:
     print("All processes completed.")
 
 
+def xlsx_to_tsv(inputFilePath: str) -> typing.NoReturn:
+    excelDatafame = pd.ExcelFile(inputFilePath)
+    # Traverse all the sheets in excel file
+    for sheet in excelDatafame.sheet_names:
+        print(f"Processing {sheet} ...")
+        df = excelDatafame.parse(sheet)
+        df.to_csv(sheet + ".tsv", encoding="utf-8", index=False, sep="\t")
+        print(f" Processing done. {sheet}.tsv is ready!")
+    print("All processes completed.")
+
+
 def xlsx_to_sqlite(inputFilePath: str) -> typing.NoReturn:
     excelDatafame = pd.ExcelFile(inputFilePath)
     filename, file_extension = os.path.splitext(
