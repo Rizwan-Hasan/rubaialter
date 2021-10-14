@@ -3,19 +3,21 @@ import logging
 import os
 import pathlib
 import sys
+import typing
+
 from rubaialter import converter
 
 logging.basicConfig(level=logging.DEBUG, format="%(levelname)s: %(message)s")
 
 
 class rubaialter:
-    def __init__(self) -> None:
+    def __init__(self) -> typing.NoReturn:
         self.__args = self.__Arguments()
         self.__Checking()
         self.__Conversion()
 
     # Arguments Parser ↓
-    def __Arguments(self):
+    def __Arguments(self) -> dict:
         parser = argparse.ArgumentParser(
             description="A module for altering datasets formats made on top of Pandas"
         )
@@ -71,7 +73,7 @@ class rubaialter:
         return parser.parse_args().__dict__
 
     # Received File Checking ↓
-    def __Checking(self):
+    def __Checking(self) -> typing.NoReturn:
         valid: bool = True
         extensions: tuple = (".csv", ".xls", ".xlsx", ".sqlite3")
 
@@ -90,7 +92,7 @@ class rubaialter:
             sys.exit()
 
     # Conversion ↓
-    def __Conversion(self):
+    def __Conversion(self) -> typing.NoReturn:
         for file in self.__args.get("filenames"):
             if self.__args.get("csv"):
                 converter.toCSV(inputFilePath=file)
