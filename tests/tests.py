@@ -3,16 +3,16 @@ import shutil
 import subprocess
 
 # Global Variables ↓
-inputFileCSV: str = "datasets/test.csv"
+inputFileCSV: str = "files/test.csv"
 outputFileCSV: str = "test.csv"
 
-inputFileXLS: str = "datasets/test.xls"
+inputFileXLS: str = "files/test.xls"
 outputFileXLS: str = "test.xls"
 
-inputFileXLSX: str = "datasets/test.xlsx"
+inputFileXLSX: str = "files/test.xlsx"
 outputFileXLSX: str = "test.xlsx"
 
-inputFileSQLITE3: str = "datasets/test.sqlite3"
+inputFileSQLITE3: str = "files/test.sqlite3"
 outputFileSQLITE3: str = "test.sqlite3"
 
 # Preparation ↓
