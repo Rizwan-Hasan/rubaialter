@@ -28,7 +28,7 @@ def xlsx_to_sqlite(inputFilePath: str) -> typing.NoReturn:
     for sheet in excelDatafame.sheet_names:
         print(f"Processing {sheet} ...")
         df = excelDatafame.parse(sheet)
-        df.to_sql(name=sheet, con=conn)
+        df.to_sql(name=sheet, con=conn, index=False)
         print(f" Processing {sheet} is done.")
     conn.commit()
     print(f"All processes completed.{newFileName} is ready!")

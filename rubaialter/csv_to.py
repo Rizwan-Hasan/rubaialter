@@ -30,7 +30,7 @@ def csv_to_sqlite(inputFilePath: str) -> typing.NoReturn:
     )  # Get File Name & Extension
     newFileName = filename + ".sqlite3"
     conn = sqlite3.connect(newFileName)
-    df.to_sql(name=filename, con=conn)
+    df.to_sql(name=filename, con=conn, index=False)
     conn.commit()
     print(f"All process done. {newFileName} is ready!")
     conn.close()
