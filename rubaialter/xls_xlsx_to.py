@@ -1,9 +1,12 @@
 import os
 import sqlite3
+import typing
+
 import pandas as pd
 
+
 # xlsx functions
-def xlsx_to_csv(inputFilePath: str):
+def xlsx_to_csv(inputFilePath: str) -> typing.NoReturn:
     excelDatafame = pd.ExcelFile(inputFilePath)
     # Traverse all the sheets in excel file
     for sheet in excelDatafame.sheet_names:
@@ -14,7 +17,7 @@ def xlsx_to_csv(inputFilePath: str):
     print("All processes completed.")
 
 
-def xlsx_to_sqlite(inputFilePath: str):
+def xlsx_to_sqlite(inputFilePath: str) -> typing.NoReturn:
     excelDatafame = pd.ExcelFile(inputFilePath)
     filename, file_extension = os.path.splitext(
         os.path.basename(inputFilePath)
@@ -32,7 +35,7 @@ def xlsx_to_sqlite(inputFilePath: str):
     conn.close()
 
 
-def xlsx_to_xls(inputFilePath: str, extension="xls"):
+def xlsx_to_xls(inputFilePath: str, extension="xls") -> typing.NoReturn:
     filename, file_extension = os.path.splitext(
         os.path.basename(inputFilePath)
     )  # Get File Name & Extension
@@ -48,15 +51,15 @@ def xlsx_to_xls(inputFilePath: str, extension="xls"):
 
 
 # xls functions
-def xls_to_csv(inputFilePath: str):
+def xls_to_csv(inputFilePath: str) -> typing.NoReturn:
     xlsx_to_csv(inputFilePath)
 
 
-def xls_to_sqlite(inputFilePath: str):
+def xls_to_sqlite(inputFilePath: str) -> typing.NoReturn:
     xlsx_to_sqlite(inputFilePath)
 
 
-def xls_to_xlsx(inputFilePath: str):
+def xls_to_xlsx(inputFilePath: str) -> typing.NoReturn:
     xlsx_to_xls(inputFilePath, extension="xlsx")
 
 
