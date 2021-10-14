@@ -1,10 +1,11 @@
 import os
 import sqlite3
+import typing
 
 import pandas as pd
 
 
-def sqlite_to_csv(inputFilePath: str):
+def sqlite_to_csv(inputFilePath: str) -> typing.NoReturn:
     conn = sqlite3.connect(inputFilePath)
     cursor = conn.cursor()
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
@@ -19,7 +20,7 @@ def sqlite_to_csv(inputFilePath: str):
     print("All processes are done!")
 
 
-def sqlite_to_xlsx(inputFilePath: str, extension="xlsx"):
+def sqlite_to_xlsx(inputFilePath: str, extension="xlsx") -> typing.NoReturn:
     conn = sqlite3.connect(inputFilePath)
     cursor = conn.cursor()
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
@@ -38,7 +39,7 @@ def sqlite_to_xlsx(inputFilePath: str, extension="xlsx"):
     conn.close()
 
 
-def sqlite_to_xls(inputFilePath: str):
+def sqlite_to_xls(inputFilePath: str) -> typing.NoReturn:
     sqlite_to_xlsx(inputFilePath, extension="xls")
 
 
